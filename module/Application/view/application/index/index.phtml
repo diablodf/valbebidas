@@ -1,0 +1,110 @@
+<style type="text/css">
+    #img-captcha {
+        height: 30px;
+        position: relative;
+        top: -5px;
+    }
+    #help-captcha {
+        font-size: .9em;
+    }
+    .link-seguranca {
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+    }
+</style>
+<br />
+<div class="row-fluid">
+    <div class="span4"></div>
+    <div class="span4">
+        <form class="well" id="fm-login" name="fmLogin" method="post" action="<?php //echo url_for('@login_index'); ?>">
+            <input name="id" value="<?php //echo $sf_user->getAttribute('csrf'); ?>" type="hidden" />
+
+            <div class="control-group">
+                <label for="login">CPF</label>
+                <input id="login" name="login" maxlength="11" type="text" placeholder="CPF" />
+            </div>
+            <div class="control-group">
+                <label for="senha">Senha</label>
+                <input id="senha" name="senha" type="password" placeholder="Senha" />
+            </div>
+            <div class="control-group">
+                <label for="codigo">Código de segurança</label>
+                <?php
+                //$captcha = new sfWidgetCaptchaGD();
+                //echo $captcha->render('codigo', null);
+                ?>
+                <a href='javascript:void(0);' onclick='return false' title='Gerar outra imagem'><img id="img-captcha" src='<?php //echo url_for('@sf_captchagd?reload=' . time(), true); ?>' onclick='this.src="<?php //echo url_for('@sf_captchagd', true); ?>?r=" + Math.random() + "&reload=1"'></a>
+                <span id="help-captcha" class="help-block">Clique na imagem para gerar um novo código</span>
+            </div>
+            <div class="control-group align-center">
+                <button type="submit" class="btn btn-primary">Entrar <i class='icon-chevron-right icon-white'></i></button>
+            </div>
+            <hr />
+            <button type="button" class="btn btn-link link-seguranca">&raquo; <?php //echo link_to('Primeiro acesso, clique aqui', '@login_cadastrar'); ?></button>
+            <button type="button" class="btn btn-link link-seguranca">&raquo; <?php //echo link_to('Recuperar minha senha', '@login_recuperar'); ?></button>
+            <button type="button" class="btn btn-link link-seguranca">&raquo; <?php //echo link_to('Alterar minha senha', '@login_alterar'); ?></button>
+        </form>
+    </div>
+    <div class="span4"></div>
+</div>
+        
+<!--        <ul class="nav nav-list">
+            <li class="active"><i class=""></i>Categorias</li>
+            <li><a href="#"><i class="icon-shopping-cart"></i> Carrinho</a></li>
+            <li><a href="#"><i class="icon-book"></i> Library</a></li>
+            <li><a href="#"><i class="icon-pencil"></i> Applications</a></li>
+            <li><a href="#"><i class="i"></i> Misc</a></li>
+        </ul>      -->
+      
+
+
+
+<!--<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>ROBERT COSTA</td>
+            <td>robert.costa@gmail.com</td>
+            <td>ATIVO</td>
+        </tr>
+        <tr>
+            <td>PHILIPE BRITO COSTA</td>
+            <td>philipe.costa@gmail.com</td>
+            <td>ATIVO</td>
+        </tr>        
+    </tbody>
+</table>-->
+
+
+
+<!--<a href="#myModal" class="btn" data-toggle="modal">Logar</a>
+
+<div class="modal hide fade" id="myModal" aria-hidden="true">
+    <div class="modal-header">
+        <h3>Login</h3>
+    </div>
+    
+    <div class="modal-body">
+        <form>
+            <label>Email</label>
+            <input type="email" class="span4"/><br/>
+            <label>Senha</label>
+            <input type="email" class="span4"/><br/><br/>
+            <button type="submit" class="btn btn-success">Login</button>
+            <button type="reset" class="btn">Limpar</button>
+        </form>
+    </div>
+    
+    <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Fechar</button> 
+    </div>
+    
+</div>-->
+
+

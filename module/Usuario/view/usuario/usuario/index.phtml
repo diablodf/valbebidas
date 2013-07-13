@@ -1,0 +1,91 @@
+<script type="text/javascript">
+    $(function() {
+        
+    }
+
+
+</script>
+
+<?php echo $this->form()->openTag($form); ?>
+
+    <form class="form-search">
+        <fieldset>
+            <legend>Pesquisar</legend>
+            <?php 
+                echo $this->formElement($form->get('nm_usuario')->setAttributes(array(
+                                                                                    'placeholder'=>'Digite o nome ou parte do nome',
+                                                                                    'class' => 'input-xlarge search-query',
+                    ))) 
+            ?>
+            <button type="submit" class="btn">Ok</button>
+        </fieldset>
+        <br/>
+        <div>
+            <?php //echo $this->formElement($form->get('btn_novo'));?>
+        </div>
+        <a href="#myModal" class="btn btn-large btn-primary" data-toggle="modal">Novo</a>
+        
+    </form>
+
+<?php echo $this->form()->closeTag($form); ?>
+
+<?php if (@$_POST): ?>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Situação</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php if ( sizeof($this->resultado) ):  ?>
+            
+                <?php foreach ( $resultado as $usuario ) : ?>
+                    <tr>
+                        <td><?php echo $usuario->nm_usuario; ?></td>
+                        <td><?php echo $usuario->ds_email_usuario; ?></td>
+                        <td><?php echo $usuario->st_registro_usuario == 0 ? 'Inativo' : 'Ativo' ; ?></td>
+                    </tr>
+                <?php endforeach; ?>
+                    
+            <?php else:  ?>
+                <tr>
+                    <td colspan="3" >Não foram encontrados registros para esta pesquisa</td>
+                </tr>
+            <?php endif; ?>                     
+        </tbody>
+    </table>
+
+<?php endif; ?>
+
+<div class="modal hide fade" id="myModal" aria-hidden="true">
+    <div class="modal-header">
+        <h3>Cadastro - Usuário</h3>
+    </div>
+    
+    <div class="modal-body">
+        <form>
+            <label>CPF</label>
+            <?php echo $this->formElement($form->get('nr_cpf_usuario')) ?>    
+            <label>Nome</label>
+            <?php echo $this->formElement($form->get('nm_usuario')) ?>
+            <label>Email</label>
+            <?php echo $this->formElement($form->get('ds_email_usuario')) ?>
+            <label>Senha</label>
+            <?php echo $this->formElement($form->get('ds_senha_usuario')) ?>
+            
+            <!--input type="email" class="span4"/--><br/>
+            <label>Senha</label>
+            <input type="email" class="span4"/><br/><br/>
+            <button type="submit" class="btn btn-success">Login</button>
+            <button type="reset" class="btn">Limpar</button>
+        </form>
+    </div>
+    
+    <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Fechar</button> 
+    </div>
+    
+</div>
+
