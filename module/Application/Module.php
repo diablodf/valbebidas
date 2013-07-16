@@ -12,6 +12,13 @@ namespace Application;
 use Zend\Mvc\ModuleRouteListener;
 use Zend\Mvc\MvcEvent;
 
+use Zend\Db\TableGateway\TableGateway;
+use Zend\Db\ResultSet\ResultSet;
+
+use Application\Model\Produtos;
+use Application\Model\ProdutosTable;
+
+
 class Module
 {
     public function onBootstrap(MvcEvent $e)
@@ -41,32 +48,20 @@ class Module
     {
         return array(
             'factories' => array(
-                'Application\Model\TelefoneTable' =>  function($sm) {
-                    $tableGateway = $sm->get('TelefoneTableGateway');
-                    $table = new TelefoneTable($tableGateway);
+                'Application\Model\ProdutosTable' =>  function($sm) {
+                    $tableGateway = $sm->get('ProdutosTableGateway');
+                    $table = new ProdutosTable($tableGateway);
                     return $table;
                 },
-                'TelefoneTableGateway' => function ($sm) {
+                'ProdutosTableGateway' => function ($sm) {
                     $dbAdapter = $sm->get('Zend\Db\Adapter\Adapter');
                     $resultSetPrototype = new ResultSet();
-                    $resultSetPrototype->setArrayObjectPrototype(new Telefone());
-                    
-                    $table = new \Zend\Db\Sql\TableIdentifier('tb_telefone', 'premioempresario');
+                    $resultSetPrototype->setArrayObjectPrototype(new Produtos());
+                    $table = new \Zend\Db\Sql\TableIdentifier('tbl_produtos');
                     return new TableGateway($table, $dbAdapter, null, $resultSetPrototype);
-                },   
+                },
              ),      
         );
-                
     }    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
 }

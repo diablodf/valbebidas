@@ -33,7 +33,9 @@ $(document).ready(function(){
         var itemsNb = parseInt ($('.shopBtn span').html());
         itemsNb++;
         var id = parseInt($(this).attr('rel'));
+        alert(id);
         $.getJSON('json/items.json', function(data) {
+            console.log(data);
             trash = '<a href="#" class="trash"><i class="icon-trash"></i></a>';
             $('.cartTab tbody').append('<tr><td>'+data.items[id-1].name+'</td><td class="tdPrice">$ <span>'+data.items[id-1].price+'</span></td><td>'+trash+'</td></tr>');
             $('#amount').html(parseInt($('#amount').html())+parseInt(data.items[id-1].price));

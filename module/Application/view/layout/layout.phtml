@@ -1,33 +1,133 @@
-<?php echo $this->doctype(); ?>
-
-<html lang="en">
+<html>
+    
     <head>
-        <meta charset="utf-8">
-        <?php //echo $this->headTitle('ZF2 '. $this->translate('Skeleton Application'))->setSeparator(' - ')->setAutoEscape(false) ?>
-
-        <?php //echo $this->headMeta()->appendName('viewport', 'width=device-width, initial-scale=1.0') ?>
-
-        <!-- Le styles -->
-        <?php echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/favicon.ico'))
-                        ->prependStylesheet($this->basePath() . '/css/bootstrap-responsive.min.css')
-                        ->prependStylesheet($this->basePath() . '/css/style.css')
-                        ->prependStylesheet($this->basePath() . '/css/bootstrap.min.css') ?>
-
-        <!-- Scripts -->
-        <?php echo $this->headScript()->prependFile($this->basePath() . '/js/html5.js', 'text/javascript', array('conditional' => 'lt IE 9',))
-                                      ->prependFile($this->basePath() . '/js/bootstrap.min.js')
-                                      ->prependFile($this->basePath() . '/js/jquery.min.js') ?>
-
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Valbebidas - Distribuidora de bebidas online</title>
+        <meta name="description" content="">
+        <meta name="author" content="robert costa, srobertcosta@gmail.com">
+        
+        <!-- css -->
+        <link href="css/bootstrap.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
+        <link rel="shortcut icon" href="img/favicon.ico" >
+        
+        <!-- js -->
+        <script src="js/jquery.js"></script>
+        <script src="js/jquery.masonry.min.js"></script>
+        <script src="js/bootstrap.js"></script>
+        <script src="js/scripts.js"></script>
+        
     </head>
+    
     <body>
-        <div class="container">
-            <?php echo $this->content; ?>
-            <hr>
-            <footer>
-                <p>&copy; 2013 - <?php echo date('Y') ?> Val Bebidas. <?php echo $this->translate('All rights reserved.') ?></p>
-            </footer>
-            
-        </div> 
-        <?php //echo $this->inlineScript() ?>
+        <div id="header">
+            <div class="span12">
+                <div class="logo">
+                    <a href="."><img src="img/logo.png" alt=""/></a>
+                </div>      <ul class="nav nav-pills">
+                    <li class="dropdown" id="menu1">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#menu1">
+                            Ordenar por categoria
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Categoria 1</a></li>
+                            <li><a href="#">Categoria 2</a></li>
+                            <li><a href="#">Categoria 3</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <a class="shopBtn" href="#modalCart"><span class="label label-info">0</span></a>
+<!--                <div class="hero-unit">
+                    <h3>Bemvindo a Valbebidas a distribuidora de bebidas online do Valparaiso</h3>
+                </div>-->
+            </div>
+        </div>    
+        
+        <div id="main">
+            <div class="span12">
+                <div class="span9">
+                    <div class="mainContent">
+                        <?php echo $this->content; ?>
+                    </div>
+                </div>		
+<!--                <div class="span3" id="rightside">
+                    <form action="" method="post" name="search" >
+                        <input type="text"   placeholder="Search..."/>
+                    </form>
+                    <div class="page-header">
+                        <h3>Tweet , Like &amp; Share this</h3>
+                    </div>
+                    <p>
+                        <a href="#"><img src="img/nl_twitter.png" alt=""></a>
+                        <a href="#"><img src="img/nl_facebook.png" alt=""></a>
+                        <a href="#"><img src="img/nl_gplus.png" alt=""></a>
+                    </p>
+                    <div class="page-header">
+                        <h3>Promotion</h3>
+                    </div>
+                    <p>facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                    <div class="page-header">
+                        <h3>Best Items</h3>
+                    </div>
+                    <div class="thumbnail">
+                        <img alt="" src="img/1.jpg">
+                        <div class="caption">
+                            <p><a class="btn primary details" href="#" rel="ajax/1.html"><i class="icon-zoom-in"></i></a> <a class="btn addto" href="#" rel="1">Add to <i class="icon-shopping-cart"></i></a> <span class="label label-info price">$ 10</span></p>
+                        </div>
+                    </div>
+                </div-->
+            </div>
+        </div>
+
+        <footer class="footer ">
+            <div class="span12">
+                <p class="pull-right"><a href="#" id="goTop">Back to top</a></p>
+                <!--<p>egestas eget quam. Donec id elit non mi porta gravida at eget metus <a target="_blank" href="#">@Mytwitter</a> - <a href="mailto:zied.hosni.mail@gmail.com">contact</a> .</p>-->
+                <p>&COPY; 2013</p>
+              </div>
+        </footer>
+        <!-- popin -->
+<!--        <div id="modal">
+            <div class="modal">
+
+            </div>
+        </div>-->
+<!--        <div id="modalCart">
+            <div class="modal">
+                <div class="modal-header">
+                    <a class="close" data-dismiss="modal">×</a>
+                    <h3>My Cart</h3>
+                </div>
+                <div class="modal-body">
+                    <table class="table cartTab">
+                        <thead>
+                            <tr>
+                                <th>Items</th>
+                                <th>Price</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <span class="label label-info price">Total : $ <span id="amount">0</span></span>
+                    <a class="btn buyNow" href="http://paypal.com" target="blank">Buy Now <i class="icon-ok"></i></a>
+                </div>
+            </div>
+        </div>-->
+<!--        <div class="span4 alertAdd">
+            <div class="alert alert-info">
+                Added to your cart
+            </div>
+        </div>-->
+        
+        
     </body>
+    
+    
 </html>
+
+
