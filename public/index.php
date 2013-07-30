@@ -4,7 +4,8 @@
  * to the application root now.
  */
 
-die('aqui estou fazendo um teste');
+
+
 
 chdir(dirname(__DIR__));
 
